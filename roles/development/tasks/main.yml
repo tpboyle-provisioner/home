@@ -1,0 +1,7 @@
+---
+- name: Clone or update the GitHub repository
+      ansible.builtin.git:
+        repo: "https://github.com/OWNER/REPO.git"  # replace with actual repo URL
+        dest: "/path/to/your/directory"            # replace with desired destination directory
+        version: "main"                            # or "master", or a specific branch/tag/commit
+        update: yes     

@@ -1,0 +1,32 @@
+---
+# See https://phoenixnap.com/kb/ubuntu-install-kvm
+
+- name: Install KVM and related packages (Debian/Ubuntu)
+  apt:
+    name:
+      - qemu-kvm
+      - libvirt-daemon-system
+      - libvirt-clients
+      - bridge-utils
+      - virt-manager
+    state: present
+
+- name: Ensure libvirtd service is running and enabled
+  service:
+    name: libvirtd
+    state: started
+    enabled: yes
+
+- name: Add current user to libvirt group
+  user:
+    name: "{{ user }}"
+    groups: libvirt
+    append: yes
+  become: true
+
+- name: Add current user to kvm group
+  user:
+    name: "{{ user }}"
+    groups: kvm
+    append: yes
+  become: true

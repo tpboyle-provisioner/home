@@ -1,0 +1,10 @@
+---
+- name: Install development environment
+  hosts: all
+  become: yes
+  vars:
+    user: pat
+    home: /home/{{ user }}
+  roles:
+    - development
+    - home

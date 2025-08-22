@@ -1,0 +1,6 @@
+---
+- name: "music : Install core music packages"
+  apt:
+    name:
+      - pulseaudio
+    state: present

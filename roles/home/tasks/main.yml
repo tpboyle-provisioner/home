@@ -1,0 +1,3 @@
+---
+- import_tasks: apps.yml
+- import_tasks: scanner.yml

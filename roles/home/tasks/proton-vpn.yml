@@ -1,0 +1,31 @@
+---
+- name: "proton-vpn : Check if Proton VPN is installed"
+  shell: dpkg -l | grep '^ii' | grep 
+  register: dpkg_check
+  ignore_errors: yes
+
+- name: "proton-vpn : Download Proton VPN GPG key & stable repo .deb if not installed"
+  get_url:
+    url: https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.6_all.deb
+    dest: /tmp/proton-vpn-stable.deb
+  when: dpkg_check.rc != 0
+
+- name: "proton-vpn : Install Proton VPN GPG key & stable repo .deb if not installed
+  apt:
+    deb: /tmp/brscan5-1.3.10-5.amd64.deb
+    state: present
+  when: dpkg_check.rc != 0
+
+- name: Update apt cache (run 'apt update')
+  apt:
+    update_cache: yes
+  when: dpkg_check.rc != 0
+
+- name: "proton-vpn : Install scanning utilities"
+  apt:
+    name:
+      - proton-vpn-gnome-desktop
+      - libayatana-appindicator3-1
+      - gir1.2-ayatanaappindicator3-0.1
+      - gnome-shell-extension-appindicator
+    state: present

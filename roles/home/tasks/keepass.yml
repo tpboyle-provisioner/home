@@ -1,0 +1,21 @@
+---
+- name: Check if KeePassXC PPA is present
+  shell: grep -h ^ /etc/apt/sources.list /etc/apt/sources.list.d/*.list | grep 'ppa.launchpad.net/phoerious/keepassxc'
+  register: keepassxc_ppa_check
+  ignore_errors: yes
+
+- name: "keepass : Add KeePassXC PPA"
+  apt_repository:
+    repo: ppa:phoerious/keepassxc
+    state: present
+  when: keepassxc_ppa_check.rc != 0
+
+- name: "keepass : Update apt cache"
+  apt:
+    update_cache: yes
+  when: keepassxc_ppa_check.rc != 0
+
+- name: "keepass : Install keepassxc"
+  apt:
+    name: keepassxc
+    state: present

@@ -1,0 +1,42 @@
+---
+- name: "home : Install home tools from apt"
+  apt:
+    name:
+      - gnome-tweaks
+      - gnome-tweak-tool
+      - flatpak
+    state: present
+
+- name: "home : Install home apps from apt"
+  apt:
+    name:
+      - gimp
+      - vlc
+      - steam
+
+- name: "home : Install home apps from Snap"
+  community.general.snap:
+    name:
+      - discord
+      - spotify
+    state: present
+
+- name: "home : Install code (Visual Studio Code) as a classic snap"
+  community.general.snap:
+    name: code
+    classic: yes
+    state: present
+
+- name: Add Flathub remote
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+- name: "home : Install Flatpak apps"
+  community.general.flatpak:
+    name:
+      - io.github.hmlendea.geforcenow-electron
+      - org.cryptomator.Cryptomator
+      - com.usebnt
+ 

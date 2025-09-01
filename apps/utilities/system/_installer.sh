@@ -7,5 +7,5 @@ source "$SYSTEM_DIR/gnome.sh"
 
 all_system_utilities_are_provisioned () {
   ensure_gnome_utilities_are_installed 
-  ensure_scanner_is_installed
+  # ensure_scanner_is_installed
 }

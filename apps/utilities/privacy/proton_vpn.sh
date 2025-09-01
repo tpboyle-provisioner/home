@@ -8,7 +8,6 @@ ensure_proton_vpn_is_installed () {
 
 ensure_additional_proton_vpn_utilities_are_installed () {
   apt_ensure_packages_are_installed \
-    proton-vpn-gnome-desktop \
     libayatana-appindicator3-1 \
     gir1.2-ayatanaappindicator3-0.1 \
     gnome-shell-extension-appindicator

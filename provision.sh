@@ -9,7 +9,7 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # SOURCES
 
 source "src/logger.sh"
-source "$DIR/apps/_installer.sh"
+source "$DIR/apps/_all.sh"
 
 [ -f "$DIR/conf.sh" ] && source "$DIR/conf.sh"
 
@@ -17,11 +17,11 @@ source "$DIR/apps/_installer.sh"
 # HELPERS
 
 log_header () {
-  info "home" "---- Starting <<HOME>> provisioning... ----"
+  info "home" "Starting _home_ provisioning..."
 }
 
 log_footer () {
-  info "home" "---- ...<<HOME>> provisioning complete. ----"
+  info "home" "..._home_ provisioning complete."
 }
 
 

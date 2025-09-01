@@ -1,12 +1,13 @@
 
 # Get current directory
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+APPS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-source "$DIR/common.sh"
-source "$DIR/gnome.sh"
+source "$APPS_DIR/common.sh"
+source "$APPS_DIR/gaming/_installer.sh"
+# source "$APPS_DIR/utilities/_installer.sh"
 
 all_home_apps_are_provisioned () {
-  echo "PASS"
-  # ensure_common_apps_are_installed
-  # ensure_common_gnome_utilities_are_installed
+  ensure_common_apps_are_installed
+  # all_utilities_are_provisioned
+  all_gaming_apps_are_provisioned
 }

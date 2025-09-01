@@ -1,5 +1,5 @@
 
-ensure_common_gnome_utilities_are_installed () {
+ensure_gnome_utilities_are_installed () {
   apt_ensure_packages_are_installed \
     gnome-tweaks \ 
     gnome-tweak-tool 

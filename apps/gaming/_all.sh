@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # Get current directory
 GAMING_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

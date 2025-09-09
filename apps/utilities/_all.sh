@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # Get current directory
 HOME_UTILITIES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

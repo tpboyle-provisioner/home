@@ -1,3 +1,4 @@
+#!/bin/bash
 
 ensure_keepassxc_is_installed () {
   apt_ensure_ppa_repository_is_installed \

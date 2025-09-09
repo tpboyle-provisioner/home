@@ -1,3 +1,4 @@
+#!/bin/bash
 
 DEB_URL="https://repo.steampowered.com/steam/archive/stable/steam_latest.deb"
 

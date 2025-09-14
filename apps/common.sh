@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "src/packages/apt.sh"
+source "src/packages/apt/packages.sh"
 source "src/packages/snap.sh"
 
 ensure_common_apps_are_installed () {

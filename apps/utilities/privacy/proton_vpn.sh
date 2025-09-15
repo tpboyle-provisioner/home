@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "src/packages/dpkg.sh"
+
 DEB_URL="https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.6_all.deb"
 
 ensure_proton_vpn_is_installed () {

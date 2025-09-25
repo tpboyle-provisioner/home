@@ -1,9 +1,13 @@
 #!/bin/bash
 
+source "src/users.sh"
+
 ensure_gnome_utilities_are_installed () {
   apt_ensure_packages_are_installed \
     gnome-tweaks 
-  # configure_dock
+  if ! current_user_is_sudo; then
+    configure_dock
+  fi
 }
 
 configure_dock () {

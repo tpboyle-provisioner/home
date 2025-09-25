@@ -1,0 +1,6 @@
+
+SCROLL_NATURAL="true"
+
+DOCK_POSITION="BOTTOM"
+DOCK_EXTEND="false"
+DOCK_FIXED="false"

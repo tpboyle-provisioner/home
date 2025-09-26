@@ -8,3 +8,5 @@
     - NVIDIA X Server Settings
         > PRIME Profiles > NVIDIA (Performance Mode)
 
+2. install Gnome extensions
+  a. Blur My Shell (https://extensions.gnome.org/extension/3193/blur-my-shell/)

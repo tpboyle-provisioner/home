@@ -4,7 +4,8 @@ source "src/users.sh"
 
 ensure_gnome_utilities_are_installed () {
   apt_ensure_packages_are_installed \
-    gnome-tweaks 
+    gnome-tweaks \
+    gnome-shell-extensions
   if ! current_user_is_sudo; then
     configure_dock
     configure_mouse

@@ -2,6 +2,7 @@
 ## POST-INSTALLATION NECESSITIES
 
 1. install the latest NVIDIA driver (if you need it)
+  pre: install pkg-config, libglvnd-dev
   a. $ apt --purge remove nvidia-*
   b. download the latest Linux driver from the website (https://www.nvidia.com/en-in/drivers/details/254271/)
   c. install the driver

@@ -7,6 +7,7 @@ ensure_common_apps_are_installed () {
   apt_ensure_packages_are_installed \
     flatpak \
     gimp \
+    libreoffice \
     vlc
   
   snap_ensure_packages_are_installed \

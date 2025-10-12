@@ -2,21 +2,29 @@
 ## POST-INSTALLATION NECESSITIES
 
 1. install and configure the latest NVIDIA driver (if you need it)
-  a. install the driver
-    pre: install pkg-config, libglvnd-dev
-    1. $ apt --purge remove nvidia-*
-    2. download the latest Linux driver from the website (https://www.nvidia.com/en-in/drivers/details/254271/)
-    3. install the driver
-    4. import the driver's signature into MOK using mokutils:
-      $ mokutils --import /usr/share/nvidia/nvidia-modsign-crt-XXXXXXXXXX.der
-    5. restart and follow the onscreen MOK prompts to authorize the certificate and add it to MOK
+  a. select the driver
+    1. Open Software & Updates > Additional Drivers.
+    2. Select the latest driver.
+    3. Click 'Apply Changes'.
+    4. Possibly reboot.
+  b. I think the driver should be automatically trusted by MOK,
+       but you may need to run through the mokutils setup for the NVIDIA driver if not.
   b. install and configure nvidia-prime to ensure the dedicated GPU is always what's used
     1. $ sudo apt install nvidia-prime
     2. $ sudo prime-select nvidia
     3. check that it worked: $ sudo prime-select query
+  c. add the Wayland fix to the GRUB boot command
+    1. $ sudo vim /etc/default/grub
+    2. it's either...
+        GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia.NVreg_EnableGpuFirmware=0"
+      or
+        GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia_drm.modeset=1"
+    3. $ sudo update-grub
+    4. $ sudo reboot now
+  c. ensure "performance mode" is enabled in NVIDIA X Server...
 
 2. Configure Gnome
   a. install Gnome extensions
-    1. Dash to Dock (https://extensions.gnome.org/extension/307/dash-to-dock/)
-      a. open Extensions > Dash to Dock, set Appearance > Opacity to 0% or 50%
+    1. remove Dash to Dock
+    2. enable extensions
   b. (optional) change wallpaper

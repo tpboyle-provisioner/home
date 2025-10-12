@@ -7,8 +7,10 @@ DEB_URL="https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvp
 APT_PACKAGE_LIST_PATH="/var/lib/apt/lists/repo.protonvpn.com_debian_dists_stable_InRelease"
 
 ensure_proton_vpn_is_installed () {
-  dpkg_ensure_package_is_installed "protonvpn-stable-release" "$DEB_URL"
-  ensure_proton_vpn_package_list_has_been_updated
+  if ! dpkg_package_is_installed "protonvpn-stable-release"; then
+    dpkg_install_package "protonvpn-stable-release" "$DEB_URL"
+    ensure_proton_vpn_package_list_has_been_updated
+  fi
   apt_ensure_package_is_installed proton-vpn-gnome-desktop
   ensure_additional_proton_vpn_utilities_are_installed
 }
